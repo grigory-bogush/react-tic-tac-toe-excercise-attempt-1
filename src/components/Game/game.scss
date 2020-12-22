@@ -1,0 +1,21 @@
+.game {
+  &__container {
+    height: 340px;
+  }
+  &__title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &__board {
+    margin-bottom: 20px;
+  }
+  &__actions {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+  }
+}

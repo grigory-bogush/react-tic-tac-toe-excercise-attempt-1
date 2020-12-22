@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Game from './components/Game';
+import './App.scss';
 
-function App() {
+const App = () => {
+  const [mode, setMode] = useState<IGameMode>();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app__container'>
+      {mode ?
+        <Game mode={mode}/>
+        :
+        <div className='app__modes'>
+          <button onClick={() => setMode('single')}>player 1</button>
+          <button onClick={() => setMode('multi')}>player 2</button>
+        </div>}
     </div>
   );
 }

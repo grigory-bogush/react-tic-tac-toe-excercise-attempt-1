@@ -1,0 +1,15 @@
+.board {
+  &__container {
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+  }
+  &__row {
+    display: flex;
+    border-bottom: 2px solid lightgrey;
+    height: 80px;
+    &:last-child {
+      border: none;
+    }
+  }
+}
