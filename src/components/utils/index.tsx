@@ -38,3 +38,5 @@ export const calculateWinner = (squares: ISquare[]) => {
 export const updateBoardAt = (squares: ISquare[], index: number, value: ISquare) => {
   return [...squares.slice(0, index), value, ...squares.slice(index + 1)];
 }
+
+export const winnerToString = (winner: 'X' | 'O') => winner === 'X' ? 'player 1' : 'player 2'

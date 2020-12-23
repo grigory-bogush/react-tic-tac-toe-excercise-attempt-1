@@ -1,21 +1,57 @@
+@import '../../../styles/globals.scss';
+
 .game {
   &__container {
     height: 340px;
   }
   &__title {
-    font-size: 26px;
     text-align: center;
     margin-bottom: 20px;
+  }
+  &__turn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  &__turn-title {
+    color: $text-color-secondary;
+  }
+  &__turn-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 30px;
+    border: 2px solid #cbcbcb;
+    color: #a2a2a2;
+    width: 80px;
+  }
+  &__turn-icon {
+    width: 20px;
+    height: 20x;
+    vertical-align: middle;
+    margin-right: auto;
+    &--right {
+      margin: 0;
+      margin-left: auto;
+    }
   }
   &__board {
     margin-bottom: 20px;
   }
-  &__actions {
-    text-align: center;
-    margin-bottom: 10px;
+  &__info {
+    display: flex;
   }
   &__stats {
     display: flex;
     justify-content: space-between;
+    padding: 8px;
+    border-radius: 30px;
+    border: 2px solid $highlight-border;
+    color: $text-color-secondary;
+    width: 200px;
+    margin-right: 10px;
+  }
+  &__stats-counter {
+    color: black;
   }
 }

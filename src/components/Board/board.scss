@@ -1,12 +1,16 @@
+@import '../../../styles/globals.scss';
+
 .board {
   &__container {
     display: inline-block;
-    border-radius: 10px;
-    border: 2px solid lightgrey;
+    border-radius: 30px;
+    border: 2px solid $board-border-container-color;
+    padding: 30px;
+    background: $board-background;
   }
   &__row {
     display: flex;
-    border-bottom: 2px solid lightgrey;
+    border-bottom: 3px solid $board-border-color;
     height: 80px;
     &:last-child {
       border: none;

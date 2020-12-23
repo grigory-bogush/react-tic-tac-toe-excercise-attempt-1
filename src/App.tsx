@@ -10,8 +10,8 @@ const App = () => {
         <Game mode={mode}/>
         :
         <div className='app__modes'>
-          <button onClick={() => setMode('single')}>player 1</button>
-          <button onClick={() => setMode('multi')}>player 2</button>
+          <button className='app__button' onClick={() => setMode('single')}>player 1</button>
+          <button className='app__button' onClick={() => setMode('multi')}>player 2</button>
         </div>}
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useCallback, useLayoutEffect, useState } from 'react';
 import Board from '../Board';
-import { calculateWinner, updateBoardAt, getComputerStep } from '../utils';
+import { calculateWinner, updateBoardAt, getComputerStep, winnerToString } from '../utils';
 import './game.scss';
 
 const initSquares = Array(9).fill(null);
@@ -65,7 +65,7 @@ const Game: React.FC<IProps> = ({ mode='multi' }) => {
 
   useLayoutEffect(() => {
 
-    // isDraw has to be here to not have any issues with the winner check
+    // isDraw has to be here to not have any issues with the winner checking
     // ideally, would be done in a setState callback
     if (winner || isDraw || isMultiplayer) return;
 
@@ -75,24 +75,40 @@ const Game: React.FC<IProps> = ({ mode='multi' }) => {
   return (
     <div className='game__container'>
       <div className='game__title'>
-        {Boolean(winner) ?
-          <span>{winner === 'draw' ? 'It\'s a draw' : `Winner is: ${winner}`}</span>
-          :
-          <span>
-            {isXsTurn && <span>X's turn</span>}
-            {!isXsTurn && <span>O's turn</span>}
-          </span>}
+        {winner ?
+          (<span className='game__turn-title'>
+            {winner === 'draw' ?
+              'It\'s a draw'
+              : `Winner is ${winnerToString(winner)}`}
+          </span>
+          ) : (
+          <div className='game__turn'>
+            <span className='game__turn-title'>1 player</span>
+            <div className='game__turn-info'>
+              {isXsTurn && <img className='game__turn-icon' src='o.svg' />}
+              {!isXsTurn && <img className='game__turn-icon game__turn-icon--right' src='o.svg' />}
+            </div>
+            <span className='game__turn-title'> 2 player</span>
+          </div>)}
       </div>
       <div className='game__board'>
         <Board squares={squares} onSquareClick={onSquareClick}/>
       </div>
       
-      <div className='game__actions'>
-        <button onClick={resetGame}>Restart</button>
-      </div>
-      <div className='game__stats'>
-        <span>Wins X: {winsX}</span>
-        <span> Wins O: {winsO}</span>
+      <div className='game__info'>
+        <div className='game__stats'>
+          <span>Player 1 </span>
+          <span className='game__stats-counter'>{winsX.toString().padStart(2, '0')}</span>
+          <div className='app__divider'/>
+          <span>Player 2</span>
+          <span className='game__stats-counter'>{winsO.toString().padStart(2, '0')}</span>
+        </div>
+        <div>
+          <button className='app__button' onClick={resetGame}>
+            <img className='app__icon' src='restart.svg'/>
+            Restart
+          </button>
+        </div>
       </div>
     </div>
   );

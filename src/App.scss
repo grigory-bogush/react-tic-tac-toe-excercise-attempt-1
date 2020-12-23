@@ -19,8 +19,32 @@ body {
     height: 100%;
   }
   &__modes {
-    width: 150px;
+    width: 200px;
     display: flex;
     justify-content: space-between;
+  }
+  &__button {
+    padding: 8px;
+    border-radius: 30px;
+    //width: 80px;
+    font-size: 16px;
+    background: white;
+    color: #3d4144;
+    outline: none;
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+  &__divider {
+    display: inline-block;
+    height: auto;
+    width: 1px;
+    background: grey;
+  }
+  &__icon {
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
   }
 }
